@@ -1,13 +1,12 @@
 ﻿// brainc3l
 
 /* Color Code:
+ * Red: Error
  * Yellow: Warning/Important
  * Blue: Key
  * DarkBlue: Press any key
  * White: Info
  */
-
-ConsoleColor.
 
 // Initialization
 Console.BackgroundColor = ConsoleColor.Black;
@@ -52,11 +51,22 @@ for (; ; )
             else if (exitConfirmation.KeyChar == 'n')
                 break;
             else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid Key Press.");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.Write("PRESS [ANY KEY] TO CONTINUE... ");
+                Console.ReadKey();
                 continue;
+            }
         }
     }
     else
     {
-
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Invalid Key Press.");
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.Write("PRESS [ANY KEY] TO CONTINUE... ");
+        Console.ReadKey();
     }
 }
