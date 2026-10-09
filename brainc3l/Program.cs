@@ -1,8 +1,13 @@
 ﻿// brainc3l
 
 /* Color Code:
- * DarkCyan: Press any key
+ * Yellow: Warning/Important
+ * Blue: Key
+ * DarkBlue: Press any key
+ * White: Info
  */
+
+ConsoleColor.
 
 // Initialization
 Console.BackgroundColor = ConsoleColor.Black;
@@ -16,12 +21,42 @@ Console.WriteLine(@" _           _         ___ _
 |___|_| |__,|_|_|_|___|___|_|");
 Console.WriteLine("A free, open-source, simple yet helpful project that lets you study with flashcards.");
 
-Console.ForegroundColor = ConsoleColor.DarkCyan;
+Console.ForegroundColor = ConsoleColor.DarkBlue;
 Console.Write("\n PRESS [ANY KEY] TO START... ");
 Console.ReadKey();
 
-// Exit Screen
-Console.Clear();
-Console.ForegroundColor = ConsoleColor.DarkCyan;
-Console.Write("PRESS [ANY KEY] TO EXIT... ");
-Console.ReadKey();
+// Main Screen
+for (; ; )
+{
+    Console.Clear();
+    Console.ForegroundColor = ConsoleColor.Blue;
+    Console.WriteLine("[Q] Quit");
+    ConsoleKeyInfo option = Console.ReadKey();
+
+    if (option.KeyChar == 'q')
+    {
+        for (; ; )
+        {
+            // Exit Confirmation
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("WAIT!!!");
+            Console.WriteLine("Make sure to export all your decks and config to not lose them!");
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Are you SURE you want to exit? [Y/N] ");
+            ConsoleKeyInfo exitConfirmation = Console.ReadKey();
+
+            if (exitConfirmation.KeyChar == 'y')
+                return;
+            else if (exitConfirmation.KeyChar == 'n')
+                break;
+            else
+                continue;
+        }
+    }
+    else
+    {
+
+    }
+}
